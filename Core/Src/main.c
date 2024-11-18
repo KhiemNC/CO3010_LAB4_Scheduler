@@ -93,6 +93,7 @@ int main(void)
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
   HAL_TIM_Base_Start_IT(&htim2);
+
   SCH_Init();
 
   SCH_Add_Task(get3ButtonInput, 2, msToTick(20));

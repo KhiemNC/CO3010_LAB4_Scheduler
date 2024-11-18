@@ -190,8 +190,12 @@ void SCH_Dispatch_Tasks(void)
 
 	// Report system status
 	SCH_Report_Status();
-	// The scheduler enters idle mode at this point
-	SCH_Go_To_Sleep();
+
+	if (listData[current].data.RunMe == 0)
+	{
+		// The scheduler enters idle mode at this point
+		SCH_Go_To_Sleep();
+	}
 }
 uint32_t SCH_Add_Task(void (*pFunction)(), uint32_t DELAY, uint32_t PERIOD)
 {
@@ -259,7 +263,7 @@ uint8_t SCH_Delete_Task(uint32_t taskID)
 				resetNodeData(current);
 				List_freeIndex(current);
 			}
-			return 1;
+			return RETURN_NORMAL;
 		}
 		// GO ON TO FIND THE INDEX
 		previous = current;
