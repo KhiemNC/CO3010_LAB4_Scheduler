@@ -98,7 +98,7 @@ int main(void)
 
   SCH_Add_Task(get3ButtonInput, 2, msToTick(20));
   SCH_Add_Task(blinkyLED1, 1, msToTick(1000));
-  SCH_Add_Task(controlLED234, 3, msToTick(10));
+  SCH_Add_Task(controlLED234, 3, msToTick(50));
   SCH_Add_Task(blinkyLED5, 1, msToTick(5000));
   /* USER CODE END 2 */
 

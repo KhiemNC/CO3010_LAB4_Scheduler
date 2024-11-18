@@ -277,5 +277,10 @@ void SCH_Report_Status()
 }
 void SCH_Go_To_Sleep()
 {
+	// Entry sleep mode
+	HAL_SuspendTick();
+	HAL_PWR_EnterSLEEPMode(PWR_MAINREGULATOR_ON, PWR_SLEEPENTRY_WFI);
 
+	// After an ISR is execute: Exit sleep Mode
+	HAL_ResumeTick();
 }
